@@ -21,7 +21,7 @@ namespace AutofacDemoWCF
             builder.RegisterType<AutofacDemoWCF.Service1>();
             builder.RegisterType<Soma>().As<ICalculo>().InstancePerLifetimeScope();
 
-            builder.Register<ConnectionMultiplexer>(c => ConnectionMultiplexer.Connect("pub-redis-13919.us-east-1-2.5.ec2.garantiadata.com:13919,password=salamandraverde")).SingleInstance();
+            builder.Register<ConnectionMultiplexer>(c => ConnectionMultiplexer.Connect("localhost:13919,password=senhadoredis")).SingleInstance();
             builder.Register<IDatabase>(c => c.Resolve<ConnectionMultiplexer>().GetDatabase());
 
             // Set the dependency resolver.
